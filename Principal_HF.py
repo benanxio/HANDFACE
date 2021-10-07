@@ -8,7 +8,7 @@ from face_detection_video import FaceDetection
 kernel = np.ones((5, 5), np.uint8)
 
 wCam, hCam = 1280, 720
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cap.set(3, wCam)
 cap.set(4, hCam)
 
