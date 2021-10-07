@@ -23,8 +23,8 @@ while cap.isOpened():
     start = time.time()
 
     #Deteccion del objeto
-    rangomax = np.array([0, 255, 0])
-    rangomin = np.array([0, 150, 0])
+    rangomax=np.array([50,255,50])
+    rangomin=np.array([0,51,0])
     mascara = cv2.inRange(img, rangomin, rangomax)
     opening = cv2.morphologyEx(mascara, cv2.MORPH_OPEN, kernel)
     x, y, w, h = cv2.boundingRect(opening)
