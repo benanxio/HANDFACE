@@ -47,13 +47,13 @@ while cap.isOpened():
 
         # En caso de que haya una mano
         if len(hands) == 1 and handType1 == "Right":
-            #PosAbss = ["",fingers1,""]
-            PosAbss = ["",handType1,""]
+            PosAbss = ["",fingers1,""]
+            #PosAbss = ["",handType1,""]
             
         
         else:
-            #PosAbss = [fingers1,"",""]
-            PosAbss = [handType1,"",""]
+            PosAbss = [fingers1,"",""]
+            #PosAbss = [handType1,"",""]
 
         # En caso de que haya dos manos
         if len(hands) == 2:
@@ -65,12 +65,12 @@ while cap.isOpened():
             fingers2 = detector.fingersUp(hand2)
 
             if handType1 == "Right":
-                #PosAbss = [fingers2,fingers1,""]
-                PosAbss = [handType2,handType1,""]
+                PosAbss = [fingers2,fingers1,""]
+                #PosAbss = [handType2,handType1,""]
 
             else:
-                #PosAbss = [fingers1,fingers2,""]
-                PosAbss = [handType1,handType2,""]
+                PosAbss = [fingers1,fingers2,""]
+                #PosAbss = [handType1,handType2,""]
 
 
     face_pos,img = FaceDetection(img)
