@@ -19,12 +19,10 @@ def FaceDetection(img,draw=True):
 
                 bBox = detection.location_data.relative_bounding_box
 
-                if bBox.xmin< 0.39:
-                    pos = [[1,0,0],bBox.xmin,"RIGHT"]
-                elif bBox.xmin> 0.42:
-                    pos = [[0,0,1],bBox.xmin,"LEFT"]
-                else:
-                    pos = [[0,1,0],bBox.xmin,"CENTER"]
+                pos = [position(bBox.xmin),position(bBox.ymin)]
+
+
+                
 
                 if draw:
                     mp_drawing.draw_detection(
@@ -36,12 +34,22 @@ def FaceDetection(img,draw=True):
                     h, w, c = img.shape
                     boundBox = int(bBox.xmin * w), int(bBox.ymin * h), int(bBox.width * w), int(bBox.height * h)
 
-                    cv2.putText(img, f'{int(detection.score[0]*100)}% {pos[2]}', (boundBox[0], boundBox[1] - 20), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,255,0), 2)                       
+                    cv2.putText(img, f'{int(detection.score[0]*100)}% {pos[1]}', (boundBox[0], boundBox[1] - 20), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,255,0), 2)                       
 
         else:
-            pos = [[0,1,0],"","Centro"]
+            pos = [[0,1,0],[0,1,0]]
    
         return pos,img
+
+def position(eje):
+    pos = []
+    if eje< 0.39:
+        pos = [1,0,0]
+    elif eje> 0.42:
+        pos = [0,0,1]
+    else:
+        pos = [0,1,0]
+    return pos
 
 def punto(img,posicion,i):
 

@@ -2,7 +2,6 @@ import cv2
 import mediapipe as mp
 import math
 
-
 class HandDetector:
     """
     Detectando Manos usando la biblioteca mediapipe.
